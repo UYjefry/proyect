@@ -1,294 +1,454 @@
-import React, { useEffect, useState } from 'react';
-
-const SnowEffect = () => {
-  const [snowflakes, setSnowflakes] = useState([]);
-
-  useEffect(() => {
-    const createSnowflakes = () => {
-      const flakes = [];
-      for (let i = 0; i < 100; i++) {
-        flakes.push({
-          id: i,
-          x: Math.random() * window.innerWidth,
-          y: Math.random() * window.innerHeight,
-          size: Math.random() * 3 + 1,
-          speed: Math.random() * 2 + 1,
-          opacity: Math.random() * 0.8 + 0.2
-        });
-      }
-      setSnowflakes(flakes);
-    };
-
-    createSnowflakes();
-
-    const animateSnow = () => {
-      setSnowflakes(prev => prev.map(flake => ({
-        ...flake,
-        y: flake.y + flake.speed,
-        x: flake.x + Math.sin(flake.y * 0.01) * 0.5,
-        y: flake.y > window.innerHeight ? -10 : flake.y + flake.speed
-      })));
-    };
-
-    const interval = setInterval(animateSnow, 50);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className="fixed inset-0 pointer-events-none z-10">
-      {snowflakes.map(flake => (
-        <div
-          key={flake.id}
-          className="absolute bg-white rounded-full"
-          style={{
-            left: flake.x,
-            top: flake.y,
-            width: flake.size,
-            height: flake.size,
-            opacity: flake.opacity,
-            animation: `twinkle ${2 + Math.random() * 3}s infinite alternate`
-          }}
-        />
-      ))}
-      <style jsx>{`
-        @keyframes twinkle {
-          0% { opacity: 0.3; }
-          100% { opacity: 1; }
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-      `}</style>
-    </div>
-  );
-};
 
-const BioCyberSecArchitecture = () => {
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900 relative overflow-hidden">
-      <SnowEffect />
-      
-      <div className="relative z-20 p-6">
-        <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-5xl font-bold text-white mb-4 animate-pulse">
-              .
-            </h1>
-            <p className="text-gray-300 text-xl">
-              .
-            </p>
-          </div>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
 
-          {/* Main Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            {/* Frontend Layer */}
-            <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl p-6 backdrop-blur-sm bg-opacity-80 border border-blue-400 shadow-2xl transform hover:scale-105 transition-all duration-300">
-              <div className="text-center mb-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=200&fit=crop&crop=center" 
-                  alt="Frontend" 
-                  className="w-full h-32 object-cover rounded-lg mb-4 opacity-90"
-                />
-                <h3 className="text-2xl font-bold text-white mb-2">.</h3>
-              </div>
-              <div className="space-y-3">
-                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
-                  <h4 className="font-semibold text-white">.</h4>
-                  <p className="text-sm text-blue-100">.</p>
-                  <span className="inline-block bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded mt-1">.</span>
-                </div>
-                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
-                  <h4 className="font-semibold text-white">.</h4>
-                  <p className="text-sm text-blue-100">.</p>
-                  <span className="inline-block bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded mt-1">.</span>
-                </div>
-                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
-                  <h4 className="font-semibold text-white">.</h4>
-                  <p className="text-sm text-blue-100">.</p>
-                  <span className="inline-block bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded mt-1">.</span>
-                </div>
-              </div>
-            </div>
+        /* Efecto de nieve */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: white;
+            user-select: none;
+            pointer-events: none;
+            z-index: 1000;
+            animation: fall linear infinite;
+        }
 
-            {/* API Services */}
-            <div className="bg-gradient-to-br from-green-600 to-green-800 rounded-xl p-6 backdrop-blur-sm bg-opacity-80 border border-green-400 shadow-2xl transform hover:scale-105 transition-all duration-300">
-              <div className="text-center mb-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=300&h=200&fit=crop&crop=center" 
-                  alt="API Services" 
-                  className="w-full h-32 object-cover rounded-lg mb-4 opacity-90"
-                />
-                <h3 className="text-2xl font-bold text-white mb-2">.</h3>
-              </div>
-              <div className="space-y-3">
-                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
-                  <h4 className="font-semibold text-white">.</h4>
-                  <p className="text-sm text-green-100">.</p>
-                  <span className="inline-block bg-green-200 text-green-800 text-xs px-2 py-1 rounded mt-1">.</span>
-                </div>
-                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
-                  <h4 className="font-semibold text-white">.</h4>
-                  <p className="text-sm text-green-100">.</p>
-                  <span className="inline-block bg-green-200 text-green-800 text-xs px-2 py-1 rounded mt-1">.</span>
-                </div>
-                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
-                  <h4 className="font-semibold text-white">.</h4>
-                  <p className="text-sm text-green-100">.</p>
-                  <span className="inline-block bg-green-200 text-green-800 text-xs px-2 py-1 rounded mt-1">.</span>
-                </div>
-              </div>
-            </div>
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
 
-            {/* Security Layer */}
-            <div className="bg-gradient-to-br from-red-600 to-red-800 rounded-xl p-6 backdrop-blur-sm bg-opacity-80 border border-red-400 shadow-2xl transform hover:scale-105 transition-all duration-300">
-              <div className="text-center mb-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=300&h=200&fit=crop&crop=center" 
-                  alt="Security" 
-                  className="w-full h-32 object-cover rounded-lg mb-4 opacity-90"
-                />
-                <h3 className="text-2xl font-bold text-white mb-2">.</h3>
-              </div>
-              <div className="space-y-3">
-                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
-                  <h4 className="font-semibold text-white">.</h4>
-                  <p className="text-sm text-red-100">.</p>
-                  <span className="inline-block bg-red-200 text-red-800 text-xs px-2 py-1 rounded mt-1">.</span>
-                </div>
-                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
-                  <h4 className="font-semibold text-white">.</h4>
-                  <p className="text-sm text-red-100">.</p>
-                  <span className="inline-block bg-red-200 text-red-800 text-xs px-2 py-1 rounded mt-1">.</span>
-                </div>
-                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
-                  <h4 className="font-semibold text-white">.</h4>
-                  <p className="text-sm text-red-100">.</p>
-                  <span className="inline-block bg-red-200 text-red-800 text-xs px-2 py-1 rounded mt-1">.</span>
-                </div>
-              </div>
-            </div>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
 
-            {/* Bio Analysis */}
-            <div className="bg-gradient-to-br from-purple-600 to-purple-800 rounded-xl p-6 backdrop-blur-sm bg-opacity-80 border border-purple-400 shadow-2xl transform hover:scale-105 transition-all duration-300">
-              <div className="text-center mb-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=300&h=200&fit=crop&crop=center" 
-                  alt="Bio Analysis" 
-                  className="w-full h-32 object-cover rounded-lg mb-4 opacity-90"
-                />
-                <h3 className="text-2xl font-bold text-white mb-2">.</h3>
-              </div>
-              <div className="space-y-3">
-                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
-                  <h4 className="font-semibold text-white">.</h4>
-                  <p className="text-sm text-purple-100">.</p>
-                  <span className="inline-block bg-purple-200 text-purple-800 text-xs px-2 py-1 rounded mt-1">.</span>
-                </div>
-                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
-                  <h4 className="font-semibold text-white">.</h4>
-                  <p className="text-sm text-purple-100">.</p>
-                  <span className="inline-block bg-purple-200 text-purple-800 text-xs px-2 py-1 rounded mt-1">.</span>
-                </div>
-                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
-                  <h4 className="font-semibold text-white">.</h4>
-                  <p className="text-sm text-purple-100">.</p>
-                  <span className="inline-block bg-purple-200 text-purple-800 text-xs px-2 py-1 rounded mt-1">.</span>
-                </div>
-              </div>
-            </div>
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 0;
+        }
 
-            {/* Data Layer */}
-            <div className="bg-gradient-to-br from-yellow-600 to-yellow-800 rounded-xl p-6 backdrop-blur-sm bg-opacity-80 border border-yellow-400 shadow-2xl transform hover:scale-105 transition-all duration-300">
-              <div className="text-center mb-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=200&fit=crop&crop=center" 
-                  alt="Data Layer" 
-                  className="w-full h-32 object-cover rounded-lg mb-4 opacity-90"
-                />
-                <h3 className="text-2xl font-bold text-white mb-2">.</h3>
-              </div>
-              <div className="space-y-3">
-                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
-                  <h4 className="font-semibold text-white">.</h4>
-                  <p className="text-sm text-yellow-100">.</p>
-                  <span className="inline-block bg-yellow-200 text-yellow-800 text-xs px-2 py-1 rounded mt-1">.</span>
-                </div>
-                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
-                  <h4 className="font-semibold text-white">.</h4>
-                  <p className="text-sm text-yellow-100">.</p>
-                  <span className="inline-block bg-yellow-200 text-yellow-800 text-xs px-2 py-1 rounded mt-1">.</span>
-                </div>
-                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
-                  <h4 className="font-semibold text-white">.</h4>
-                  <p className="text-sm text-yellow-100">.</p>
-                  <span className="inline-block bg-yellow-200 text-yellow-800 text-xs px-2 py-1 rounded mt-1">.</span>
-                </div>
-              </div>
-            </div>
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+            text-shadow: 0 0 20px rgba(255,255,255,0.5);
+        }
 
-            {/* Infrastructure */}
-            <div className="bg-gradient-to-br from-gray-600 to-gray-800 rounded-xl p-6 backdrop-blur-sm bg-opacity-80 border border-gray-400 shadow-2xl transform hover:scale-105 transition-all duration-300">
-              <div className="text-center mb-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=300&h=200&fit=crop&crop=center" 
-                  alt="Infrastructure" 
-                  className="w-full h-32 object-cover rounded-lg mb-4 opacity-90"
-                />
-                <h3 className="text-2xl font-bold text-white mb-2">.</h3>
-              </div>
-              <div className="space-y-3">
-                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
-                  <h4 className="font-semibold text-white">.</h4>
-                  <p className="text-sm text-gray-100">.</p>
-                  <span className="inline-block bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded mt-1">.</span>
-                </div>
-                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
-                  <h4 className="font-semibold text-white">.</h4>
-                  <p className="text-sm text-gray-100">.</p>
-                  <span className="inline-block bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded mt-1">.</span>
-                </div>
-                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
-                  <h4 className="font-semibold text-white">.</h4>
-                  <p className="text-sm text-gray-100">.</p>
-                  <span className="inline-block bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded mt-1">.</span>
-                </div>
-              </div>
-            </div>
+        .header p {
+            font-size: 1.3rem;
+            color: #cccccc;
+            margin-bottom: 30px;
+        }
 
-          </div>
+        /* Grid de componentes */
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
 
-          {/* Bottom Section */}
-          <div className="mt-12 bg-black bg-opacity-50 rounded-xl p-8 backdrop-blur-md border border-white border-opacity-20">
-            <h2 className="text-3xl font-bold text-white mb-6 text-center animate-pulse">
-              .
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="text-center p-4 bg-white bg-opacity-10 rounded-lg backdrop-blur-sm">
-                <div className="text-4xl mb-2">🔒</div>
-                <h3 className="text-white font-semibold mb-2">.</h3>
-                <p className="text-gray-300 text-sm">.</p>
-              </div>
-              <div className="text-center p-4 bg-white bg-opacity-10 rounded-lg backdrop-blur-sm">
-                <div className="text-4xl mb-2">🧬</div>
-                <h3 className="text-white font-semibold mb-2">.</h3>
-                <p className="text-gray-300 text-sm">.</p>
-              </div>
-              <div className="text-center p-4 bg-white bg-opacity-10 rounded-lg backdrop-blur-sm">
-                <div className="text-4xl mb-2">🚀</div>
-                <h3 className="text-white font-semibold mb-2">.</h3>
-                <p className="text-gray-300 text-sm">.</p>
-              </div>
-            </div>
-          </div>
+        .component-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
 
-          <div className="mt-8 text-center">
-            <p className="text-gray-400 animate-bounce">
-              .
-            </p>
-          </div>
+        .component-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .component-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .component-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .frontend { background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop'); }
+        .api { background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=200&fit=crop'); }
+        .security { background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=200&fit=crop'); }
+        .bio { background-image: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=200&fit=crop'); }
+        .data { background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop'); }
+        .infrastructure { background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=200&fit=crop'); }
+
+        .card-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        .feature-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .feature-desc {
+            font-size: 0.9rem;
+            color: #cccccc;
+            margin-bottom: 8px;
+        }
+
+        .feature-tech {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            display: inline-block;
+        }
+
+        /* Colores por categoría */
+        .blue { border-left: 5px solid #4488ff; }
+        .green { border-left: 5px solid #00ff88; }
+        .red { border-left: 5px solid #ff4444; }
+        .purple { border-left: 5px solid #aa44ff; }
+        .yellow { border-left: 5px solid #ffaa00; }
+        .gray { border-left: 5px solid #888888; }
+
+        /* Sección inferior */
+        .bottom-section {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .bottom-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            animation: pulse 3s infinite;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-box {
+            text-align: center;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .feature-box h3 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .feature-box p {
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        /* Animaciones */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2.5rem; }
+            .components-grid { grid-template-columns: 1fr; }
+            .container { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="container">
+        <div class="header">
+            <h1>.</h1>
+            <p>.</p>
         </div>
-      </div>
-    </div>
-  );
-};
 
-export default BioCyberSecArchitecture;
+        <!-- Grid de Componentes -->
+        <div class="components-grid">
+            
+            <!-- Frontend -->
+            <div class="component-card blue">
+                <div class="card-image frontend"></div>
+                <h3 class="card-title">.</h3>
+                <div class="feature-item">
+                    <div class="feature-name">.</div>
+                    <div class="feature-desc">.</div>
+                    <span class="feature-tech">.</span>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-name">.</div>
+                    <div class="feature-desc">.</div>
+                    <span class="feature-tech">.</span>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-name">.</div>
+                    <div class="feature-desc">.</div>
+                    <span class="feature-tech">.</span>
+                </div>
+            </div>
+
+            <!-- API Services -->
+            <div class="component-card green">
+                <div class="card-image api"></div>
+                <h3 class="card-title">.</h3>
+                <div class="feature-item">
+                    <div class="feature-name">.</div>
+                    <div class="feature-desc">.</div>
+                    <span class="feature-tech">.</span>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-name">.</div>
+                    <div class="feature-desc">.</div>
+                    <span class="feature-tech">.</span>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-name">.</div>
+                    <div class="feature-desc">.</div>
+                    <span class="feature-tech">.</span>
+                </div>
+            </div>
+
+            <!-- Security -->
+            <div class="component-card red">
+                <div class="card-image security"></div>
+                <h3 class="card-title">.</h3>
+                <div class="feature-item">
+                    <div class="feature-name">.</div>
+                    <div class="feature-desc">.</div>
+                    <span class="feature-tech">.</span>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-name">.</div>
+                    <div class="feature-desc">.</div>
+                    <span class="feature-tech">.</span>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-name">.</div>
+                    <div class="feature-desc">.</div>
+                    <span class="feature-tech">.</span>
+                </div>
+            </div>
+
+            <!-- Bio Analysis -->
+            <div class="component-card purple">
+                <div class="card-image bio"></div>
+                <h3 class="card-title">.</h3>
+                <div class="feature-item">
+                    <div class="feature-name">.</div>
+                    <div class="feature-desc">.</div>
+                    <span class="feature-tech">.</span>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-name">.</div>
+                    <div class="feature-desc">.</div>
+                    <span class="feature-tech">.</span>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-name">.</div>
+                    <div class="feature-desc">.</div>
+                    <span class="feature-tech">.</span>
+                </div>
+            </div>
+
+            <!-- Data Layer -->
+            <div class="component-card yellow">
+                <div class="card-image data"></div>
+                <h3 class="card-title">.</h3>
+                <div class="feature-item">
+                    <div class="feature-name">.</div>
+                    <div class="feature-desc">.</div>
+                    <span class="feature-tech">.</span>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-name">.</div>
+                    <div class="feature-desc">.</div>
+                    <span class="feature-tech">.</span>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-name">.</div>
+                    <div class="feature-desc">.</div>
+                    <span class="feature-tech">.</span>
+                </div>
+            </div>
+
+            <!-- Infrastructure -->
+            <div class="component-card gray">
+                <div class="card-image infrastructure"></div>
+                <h3 class="card-title">.</h3>
+                <div class="feature-item">
+                    <div class="feature-name">.</div>
+                    <div class="feature-desc">.</div>
+                    <span class="feature-tech">.</span>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-name">.</div>
+                    <div class="feature-desc">.</div>
+                    <span class="feature-tech">.</span>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-name">.</div>
+                    <div class="feature-desc">.</div>
+                    <span class="feature-tech">.</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Sección Inferior -->
+        <div class="bottom-section">
+            <h2 class="bottom-title">.</h2>
+            <div class="features-grid">
+                <div class="feature-box">
+                    <span class="feature-icon">🔒</span>
+                    <h3>.</h3>
+                    <p>.</p>
+                </div>
+                <div class="feature-box">
+                    <span class="feature-icon">🧬</span>
+                    <h3>.</h3>
+                    <p>.</p>
+                </div>
+                <div class="feature-box">
+                    <span class="feature-icon">🚀</span>
+                    <h3>.</h3>
+                    <p>.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>.</p>
+        </div>
+    </div>
+
+    <script>
+        // Efecto de nieve
+        function createSnowflakes() {
+            const snowflakeCount = 50;
+            const snowflakes = ['❄', '❅', '❆', '⋆', '✦', '✧'];
+            
+            for (let i = 0; i < snowflakeCount; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                snowflake.innerHTML = snowflakes[Math.floor(Math.random() * snowflakes.length)];
+                snowflake.style.left = Math.random() * 100 + 'vw';
+                snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+                snowflake.style.opacity = Math.random();
+                snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+                snowflake.style.animationDelay = Math.random() * 2 + 's';
+                document.body.appendChild(snowflake);
+            }
+        }
+
+        // Crear copos de nieve al cargar la página
+        window.addEventListener('load', createSnowflakes);
+
+        // Recrear copos de nieve cada 10 segundos
+        setInterval(() => {
+            document.querySelectorAll('.snowflake').forEach(flake => {
+                flake.style.left = Math.random() * 100 + 'vw';
+            });
+        }, 10000);
+
+        // Efectos de hover adicionales
+        document.querySelectorAll('.component-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.background = 'rgba(255, 255, 255, 0.15)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.background = 'rgba(255, 255, 255, 0.1)';
+            });
+        });
+    </script>
+</body>
+</html>
