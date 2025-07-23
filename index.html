@@ -4,22 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cuidado en las Redes</title>
-  
+
   <!-- Fuente moderna -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
-  
+
   <style>
-    /* Reset y base */
+    /* Reset básico */
     *, *::before, *::after {
       box-sizing: border-box;
     }
-    
+
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background-color: #fff;
       color: #333;
-      line-height: 1.6;
       min-height: 100vh;
       position: relative;
       overflow-x: hidden;
@@ -37,62 +36,119 @@
       backdrop-filter: saturate(150%) blur(10px);
     }
 
-    /* Contenedor de contenido */
+    /* Contenedor principal con padding y centrado */
     header, main, footer {
       position: relative;
       max-width: 900px;
       margin: 0 auto;
       padding: 2rem 1.5rem;
+      background: rgba(255 255 255 / 0.85);
+      box-shadow: 0 4px 15px rgb(219 39 119 / 0.15);
+      border-radius: 12px;
       z-index: 1;
+      margin-bottom: 2rem;
     }
 
+    /* Header */
     header {
       text-align: center;
-      padding-top: 4rem;
-      padding-bottom: 2rem;
-      text-shadow: 0 2px 6px rgba(219, 39, 119, 0.3);
+      padding-top: 3rem;
+      padding-bottom: 1.5rem;
+      box-shadow: none;
+      margin-top: 3rem;
+      background: transparent;
+      box-shadow: none;
+      margin-bottom: 3rem;
     }
 
     header h1 {
       font-weight: 700;
-      font-size: 2.8rem;
-      color: #db2777; /* rosa fuerte */
-      margin-bottom: 0.3rem;
+      font-size: 3rem;
+      color: #db2777;
+      text-shadow: 0 3px 8px rgba(219, 39, 119, 0.4);
+      animation: slideInLeft 1s ease forwards;
+      opacity: 0;
     }
 
     header p {
-      font-weight: 400;
-      font-size: 1.25rem;
+      font-weight: 500;
+      font-size: 1.3rem;
       color: #555;
+      margin-top: 0.4rem;
+      animation: slideInLeft 1.2s ease forwards;
+      opacity: 0;
+    }
+
+    /* Animación entrada desde la izquierda */
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Sección general */
+    section {
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #db2777aa;
+      box-shadow: 0 4px 8px rgb(219 39 119 / 0.05);
+      border-radius: 8px;
+      background: white;
+    }
+
+    section:last-child {
+      border-bottom: none;
+      box-shadow: none;
     }
 
     h2 {
       font-weight: 700;
-      font-size: 1.8rem;
-      margin-bottom: 0.75rem;
+      font-size: 1.9rem;
+      margin-bottom: 1rem;
       color: #db2777;
-      text-shadow: 0 1px 3px rgba(219, 39, 119, 0.2);
+      text-shadow: 0 2px 6px rgba(219, 39, 119, 0.25);
     }
 
     p, ul {
       font-weight: 400;
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: #444;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.5;
     }
 
     ul {
-      padding-left: 1.25rem;
+      padding-left: 1.5rem;
     }
 
     ul li {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.6rem;
     }
 
     ul li::marker {
       color: #db2777;
     }
 
+    /* Imágenes representativas */
+    .section-image {
+      display: block;
+      max-width: 100%;
+      margin: 0 auto 1.5rem auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(219, 39, 119, 0.25);
+      transition: transform 0.3s ease;
+    }
+
+    .section-image:hover {
+      transform: scale(1.05);
+    }
+
+    /* Footer */
     footer {
       background: #f9f5f8;
       text-align: center;
@@ -110,10 +166,10 @@
     /* Responsive */
     @media (max-width: 480px) {
       header h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
       h2 {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
       }
       main {
         padding: 1.5rem 1rem;
@@ -135,11 +191,13 @@
 
   <main>
     <section>
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80" alt="Persona usando smartphone con redes sociales" class="section-image" />
       <h2>¿Por qué es importante?</h2>
-      <p>Las redes sociales pueden exponer nuestra información personal si no somos cuidadosos. Además, hay riesgos como el ciberacoso, estafas y manipulación de datos.</p>
+      <p>Las redes sociales pueden exponer nuestra información personal si no somos cuidadosos. Además, existen riesgos como el ciberacoso, estafas y manipulación de datos.</p>
     </section>
 
     <section>
+      <img src="https://images.unsplash.com/photo-1523475496153-3bd10aa1a6d4?auto=format&fit=crop&w=900&q=80" alt="Iconos de privacidad y seguridad digital" class="section-image" />
       <h2>Consejos clave</h2>
       <ul>
         <li>No compartas información personal con desconocidos.</li>
@@ -149,21 +207,25 @@
     </section>
 
     <section>
+      <img src="https://images.unsplash.com/photo-1559028012-4810c36d3db7?auto=format&fit=crop&w=900&q=80" alt="Educación digital" class="section-image" />
       <h2>Educación digital</h2>
       <p>Aprender a usar las redes sociales de forma segura y responsable es vital para proteger tu identidad y bienestar.</p>
     </section>
 
     <section>
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80" alt="Privacidad en línea" class="section-image" />
       <h2>Privacidad en línea</h2>
       <p>Protege tus datos personales y contraseñas con medidas sólidas y actualizadas.</p>
     </section>
 
     <section>
+      <img src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?auto=format&fit=crop&w=900&q=80" alt="Ciberacoso" class="section-image" />
       <h2>Ciberacoso</h2>
       <p>Identifica y actúa frente a cualquier forma de acoso o maltrato en internet.</p>
     </section>
 
     <section>
+      <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=900&q=80" alt="Huella digital" class="section-image" />
       <h2>Huella digital</h2>
       <p>Todo lo que publicamos queda registrado; sé consciente de la información que compartes.</p>
     </section>
