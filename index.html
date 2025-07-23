@@ -1,28 +1,294 @@
+import React, { useEffect, useState } from 'react';
 
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" as="image" href="https://r2.guns.lol/8b0630fc-710a-4ccc-a758-e2c7807c7226.webp"/><link rel="stylesheet" href="/_next/static/css/ff9399e606869db4.css" data-precedence="next"/><link rel="stylesheet" href="/_next/static/css/842fed8cb5f6a4ba.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-0063e05c817e0d7c.js"/><script src="/_next/static/chunks/4bd1b696-5cc00fdd89cac993.js" async=""></script><script src="/_next/static/chunks/1684-ccd0ab83cbafdc8f.js" async=""></script><script src="/_next/static/chunks/main-app-c95b87e4dbcdea77.js" async=""></script><script src="/_next/static/chunks/app/layout-75c5298ff535ce4d.js" async=""></script><script src="/_next/static/chunks/6874-1335ddc9318d7318.js" async=""></script><script src="/_next/static/chunks/app/not-found-8dd0414c27b7ec9b.js" async=""></script><script src="/_next/static/chunks/5322-a31cc2ef467c25bd.js" async=""></script><script src="/_next/static/chunks/8306-ea0440b802e2d283.js" async=""></script><script src="/_next/static/chunks/540-dc9b94456c69f193.js" async=""></script><script src="/_next/static/chunks/1100-1ef0397e08238c46.js" async=""></script><script src="/_next/static/chunks/9349-a0a548d327b13e51.js" async=""></script><script src="/_next/static/chunks/6990-20968a621a3be1f5.js" async=""></script><script src="/_next/static/chunks/9677-fb2b81040d185490.js" async=""></script><script src="/_next/static/chunks/4923-5305854283867663.js" async=""></script><script src="/_next/static/chunks/6696-314670b005b014c4.js" async=""></script><script src="/_next/static/chunks/4203-96a9a1e6d8ca7aea.js" async=""></script><script src="/_next/static/chunks/8011-a3879efb92aff950.js" async=""></script><script src="/_next/static/chunks/3720-b14104189fb4d51d.js" async=""></script><script src="/_next/static/chunks/4999-ba2ce358c80c82b5.js" async=""></script><script src="/_next/static/chunks/app/%5Busername%5D/page-1071e583fc180724.js" async=""></script><link rel="preload" href="https://sa.guns.lol/latest.js" as="script"/><link rel="preload" href="https://assets.guns.lol/cursor-effects.js" as="script"/><link rel="preload" href="https://challenges.cloudflare.com/turnstile/v0/api.js" as="script"/><link rel="apple-touch-icon" sizes="180x180" href="https://assets.guns.lol/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="https://assets.guns.lol/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="https://assets.guns.lol/favicon/favicon-16x16.png"/><link rel="manifest" href="https://assets.guns.lol/favicon/site.webmanifest"/><meta name="theme-color" content="#ffffff"/><link href="https://assets.guns.lol/fonts/X6XYTKIVDUW7GZTZPZNN4EUM5KH54KHF.css" rel="stylesheet"/><title>@suficy.not | guns.lol</title><meta name="description" content="Developer Profesional"/><meta name="author" content="@suficy.not | guns.lol"/><meta property="og:title" content="@suficy.not | guns.lol"/><meta property="og:description" content="Developer Profesional"/><meta property="og:image" content="https://og.guns.lol/api/og?username=suficy.not&amp;t=1753307347584"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="@suficy.not | guns.lol"/><meta name="twitter:description" content="Developer Profesional"/><meta name="twitter:image" content="https://og.guns.lol/api/og?username=suficy.not&amp;t=1753307347584"/><script>document.querySelectorAll('body link[rel="icon"], body link[rel="apple-touch-icon"]').forEach(el => document.head.appendChild(el))</script><script src="/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body><div class="gF1Nb3_244378cdd5913f278c3a" style="background-image:url(https://r2.guns.lol/825d6a9f-390d-4bc6-ac08-67759b25a046.mp4)"></div><div class="tRcbFb_4ac5c10f247eb261df8a"><div class="zbOcFX_dbdc0f63fcf9ce25e8c2" style="font-weight:700;font-size:30px">click to enter...</div></div><div class="rSZN5L_2a5dc86ff6a43e387d0c"></div><script>(self.__next_s=self.__next_s||[]).push(["https://assets.guns.lol/cursor-effects.js",{"id":"_cursor"}])</script><style>
-                ::-moz-selection {
-                    background: #ffffff;
-                    color: #000000;
-                }
-                ::selection {
-                    background: #ffffff;
-                    color: #000000;
-                }
-                </style><div class="rn2WN2_e606f195670897bc74a6" style="background-color:#000000"></div><div style="--presenceUsernameColor:#ffffff;--presenceStatusColor:rgba(255, 255, 255, 0.7);--presenceContainerBackground:rgba(0, 0, 0, 0.2);--presenceContainerBorder:2px solid rgba(0, 0, 0, 0.1);--discordServerMembers:rgba(255, 255, 255, 0.6);--secondTabBackground:rgba(0, 0, 0, 0.2);--secondTabBorder:2px solid rgba(0, 0, 0, 0.1);--discordMissingIcon:rgba(255, 255, 255, 0.25);--modernLayoutSeperator:rgba(255, 255, 255, 0.12);--modernLayoutSeperatorBorder:rgba(255, 255, 255, 0.12);--discordAvatarBorder:2px solid rgba(0, 0, 0, 0.15);--badgeContainerBackground:rgba(0, 0, 0, 0.2);--badgeContainerBorder:2px solid rgba(0, 0, 0, 0.04);--userBadge:20.5px;--textColor:#ffffff;--textColorDarker:rgba(255, 255, 255, 0.5);--iconColor:#ffffff;--backgroundColor:#000000;--joinStatus:rgba(255, 255, 255, 0.65);--audioPlayerBar:rgba(255, 255, 255, 0.35);--avatarBorder:2px solid rgba(0, 0, 0, 0.4);--containerColor:rgba(0, 0, 0, 0.08);--containerBlur:0px;--containerGradient:linear-gradient(25deg, rgba(59, 59, 59, 0.08), rgba(59, 59, 59, 0.08));--containerRadius:20px;--containerWidth:40rem;--containerPadding:35px 15px;--volumeBackgroundcolor:rgba(0, 0, 0, 0.08);--volumeBorder:2px solid rgba(0, 0, 0, 0.07200000000000001);--colorUsernameGlow:0px 0px 16.5px #ffffff;--usernameEffects:url(https://assets.guns.lol/sparkle_white.gif);--buttonBackground:rgba(255, 255, 255, 0.22);--buttonBorder:2px solid rgba(255, 255, 255, 0.12);--buttonRadius:12px;--buttonAlign:center;--buttonBackgroundHover:rgba(255, 255, 255, 0.32);--buttonBorderHover:2px solid rgba(255, 255, 255, 0.25);--buttonUrlColor:rgba(255, 255, 255, 0.65);--profileViewsContainerBorder:2px solid rgba(255, 255, 255, 0.064);--templatePreviewContainerBackground:rgba(0, 0, 0, 0.4);--platformTextColor:rgba(255, 255, 255, 0.4);--secondTabWidgetDescription:rgba(255, 255, 255, 0.6);--audioIconBackground:rgba(255, 255, 255, 0.2);--progessBarFull:rgba(255, 255, 255, 0.3);--progessBarPlaying:#ffffff;--controlButtonsOther:rgba(255, 255, 255, 0.5);--controlButtonPlaying:#ffffff;--controlTextColor:rgba(255, 255, 255, 0.7);--modernLayoutBottomLeftDivider:rgba(255, 255, 255, 0.14);--sleekLayoutTopRightDivider:rgba(255, 255, 255, 0.14)"><div class="dWBVul_8d25fbd2ec018e7f3333"><div class="kzNNV2_089e78ae7261139e29df"><div class="wZ19Vc_35f2a4c5b48e5f22cb72" style="position:fixed"><div class="hLbGOz_02af604a2f0bd5f52a08 hy0Gw1_85176f7ad5dd05cd2a8a"><div class="mOSw5x_d0dc3a8bbeb8294cbc40"><div class="f11BNF_85a5034ad3ee4f215066"><img src="https://r2.guns.lol/8b0630fc-710a-4ccc-a758-e2c7807c7226.webp" alt="" class="uy1N1l_229bedc9b07046bf61d1 false"/></div><div class="otOnbR_b7ae81993acc636a36eb false"><h1 class="o30VTG_f8ef53b912061d92eab6 false" style="font-weight:600;font-size:39.5px">suficy.not</h1><h3 class="rej3e3_1fe480aaf30e20184c29" style="font-weight:570;font-size:19px">Developer Profesional</h3></div><div class="jRyZnN_ff639c93586c40a8688e false"><div class="rpZVRm_eaee5107d30fdb87fa98" style="margin-top:20px"><div class="v3cWy3_cc3dabc52164e21fde34"><h1 style="font-weight:550;font-size:18.5px"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><defs><mask id="ipTError0"><path fill="#555" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="m6 11l5-5l13 13L37 6l5 5l-13 13l13 13l-5 5l-13-13l-13 13l-5-5l13-13z" clip-rule="evenodd"></path></mask></defs><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipTError0)"></path></svg> User Not found</h1><h3 style="font-weight:300;font-size:13.5px">Join <a target="_blank" href="https://discord.gg/guns">discord.gg/guns</a> to display your status</h3></div></div></div><div class="jbxW5w_b4c509d547ebc284a4d0 false"><div class="ltbVNN_87e32c7ed391a936e81d"><div class="v2GRSZ_f868b47b56a17c140676 bcLmSn_6799432dd94e0fce2df8"><style>
-                                    .bcLmSn_6799432dd94e0fce2df8 svg {
-                                        color: #ffffff!important;
-                                        filter: drop-shadow(#ffffff 1px 0 7px)!important;
-                                    }</style><span style="display:flex"><span style="display:flex"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0.16 0 23.68 24"><path fill="currentColor" d="M5.164 0L.16 18.928L18.836 24L23.84 5.072Zm8.747 15.354l-5.219-1.417l1.399-5.29l5.22 1.418l-1.4 5.29z"></path></svg></span></span></div><div class="v2GRSZ_f868b47b56a17c140676 ty2nUA_51fb04b862f2da664592"><style>
-                                    .ty2nUA_51fb04b862f2da664592 svg {
-                                        color: #ffffff!important;
-                                        filter: drop-shadow(#ffffff 1px 0 7px)!important;
-                                    }</style><a target="_blank" href="https://paypal.me/ByteEmpire?country.x=UY&amp;locale.x=es_XC"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="4.36 2.99 15.27 18.02"><path fill="currentColor" d="M19.554 9.488c.121.563.106 1.246-.04 2.051c-.582 2.978-2.477 4.466-5.683 4.466h-.442a.666.666 0 0 0-.444.166a.72.72 0 0 0-.239.427l-.041.189l-.553 3.479l-.021.151a.706.706 0 0 1-.247.426a.666.666 0 0 1-.447.166H8.874a.395.395 0 0 1-.331-.15a.457.457 0 0 1-.09-.363c.061-.373.148-.938.267-1.689c.117-.75.206-1.314.267-1.689s.15-.938.272-1.685c.121-.748.212-1.31.271-1.685c.033-.248.179-.371.433-.371h1.316c.893.013 1.682-.057 2.375-.211c1.172-.262 2.134-.744 2.886-1.449c.685-.637 1.203-1.462 1.56-2.473c.162-.47.277-.917.352-1.338c.006-.041.014-.066.025-.074c.008-.011.022-.014.035-.011a.378.378 0 0 1 .062.035c.524.398.854.941.98 1.632zm-1.728-2.836c0 .717-.154 1.508-.465 2.374c-.537 1.562-1.547 2.618-3.037 3.168c-.758.269-1.602.408-2.535.425c0 .006-.301.007-.904.007l-.903-.007c-.672 0-1.067.32-1.187.964c-.013.053-.298 1.83-.855 5.329c-.008.066-.048.102-.121.102H4.854a.473.473 0 0 1-.369-.165a.469.469 0 0 1-.115-.39L6.702 3.664a.784.784 0 0 1 .276-.483a.785.785 0 0 1 .519-.19h6.014c.228 0 .555.044.979.131c.428.084.801.194 1.123.321c.718.274 1.266.688 1.645 1.237c.379.552.568 1.207.568 1.972z"></path></svg></a></div><div class="v2GRSZ_f868b47b56a17c140676 jNYFuW_78ef442c5c689282a964"><style>
-                                    .jNYFuW_78ef442c5c689282a964 svg {
-                                        color: #ffffff!important;
-                                        filter: drop-shadow(#ffffff 1px 0 7px)!important;
-                                    }</style><a target="_blank" href="https://youtube.com/@LaZonaOfficial1"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="1.99 5 20.01 14.01"><path fill="currentColor" d="M21.593 7.203a2.506 2.506 0 0 0-1.762-1.766C18.265 5.007 12 5 12 5s-6.264-.007-7.831.404a2.56 2.56 0 0 0-1.766 1.778c-.413 1.566-.417 4.814-.417 4.814s-.004 3.264.406 4.814c.23.857.905 1.534 1.763 1.765c1.582.43 7.83.437 7.83.437s6.265.007 7.831-.403a2.515 2.515 0 0 0 1.767-1.763c.414-1.565.417-4.812.417-4.812s.02-3.265-.407-4.831zM9.996 15.005l.005-6l5.207 3.005l-5.212 2.995z"></path></svg></a></div><div class="v2GRSZ_f868b47b56a17c140676 xlYbLU_8cadb2f2abb9edb616fd"><style>
-                                    .xlYbLU_8cadb2f2abb9edb616fd svg {
-                                        color: #ffffff!important;
-                                        filter: drop-shadow(#ffffff 1px 0 7px)!important;
-                                    }</style><span style="display:flex"><span style="display:flex"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="1.96 4.26 20.03 15.53"><path fill="currentColor" d="M14.82 4.26a10.14 10.14 0 0 0-.53 1.1a14.66 14.66 0 0 0-4.58 0a10.14 10.14 0 0 0-.53-1.1a16 16 0 0 0-4.13 1.3a17.33 17.33 0 0 0-3 11.59a16.6 16.6 0 0 0 5.07 2.59A12.89 12.89 0 0 0 8.23 18a9.65 9.65 0 0 1-1.71-.83a3.39 3.39 0 0 0 .42-.33a11.66 11.66 0 0 0 10.12 0q.21.18.42.33a10.84 10.84 0 0 1-1.71.84a12.41 12.41 0 0 0 1.08 1.78a16.44 16.44 0 0 0 5.06-2.59a17.22 17.22 0 0 0-3-11.59a16.09 16.09 0 0 0-4.09-1.35zM8.68 14.81a1.94 1.94 0 0 1-1.8-2a1.93 1.93 0 0 1 1.8-2a1.93 1.93 0 0 1 1.8 2a1.93 1.93 0 0 1-1.8 2zm6.64 0a1.94 1.94 0 0 1-1.8-2a1.93 1.93 0 0 1 1.8-2a1.92 1.92 0 0 1 1.8 2a1.92 1.92 0 0 1-1.8 2z"></path></svg></span></span></div></div></div></div><script>(self.__next_s=self.__next_s||[]).push([0,{"children":"\n        const workerScript = `        \n            import init, { GunsSolver } from 'https://assets.guns.lol/pkg/_gunslolpow.js';\n            self.onmessage = async function (event) {               \n                const { ps, d, c, _n, org_ts } = event.data;\n                await init();\n                const _get_s = new GunsSolver(ps, c, parseInt(d), false, _n);\n                const ts = Math.floor(Date.now() / 1000);\n                const _tsoff = ts - Number(org_ts);\n                const tsp = ts - _tsoff;\n                const _res = await _get_s.solve_pow();    \n                if (_res !== null) {\n                    self.postMessage({ _res, ps, tsp, _n, c });\n                }\n            };\n        `;\n\n        const blob = new Blob([workerScript], { type: \"application/javascript\" });\n        const worker = new Worker(URL.createObjectURL(blob), { type: \"module\" });\n\n        worker.postMessage({\n            ps: 'f057b27db9a33889d0dde9cf95d6d241feac561a937bca27a2d9d474643',\n            d: '5',\n            c: 'a46ae76a173698c14bc611f2396537d7a3ef333d3017870059ded2754c4b834b',\n            _n: 'SqLroyJW61G1j6pW',\n            org_ts: '1753307347'\n        });\n\n        worker.onmessage = async function (event) {\n            const { _res, ps, tsp, _n, c } = event.data;\n            if (_res !== undefined) {\n                await getResult(_res);\n            }\n        };\n    ","id":"_code"}])</script><div class="cf-turnstile" style="display:none" data-sitekey="0x4AAAAAAAgU7T2niLQD-TLm" data-callback="getToken"></div><div class="d21GYX_599d5ef2ae281840bef2 false" style="bottom:12px;left:15px"><span style="font-weight:550;font-size:14px"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"></path></svg> <!-- -->4</span></div></div></div></div></div></div><!--$--><!--/$--><!--$--><!--/$--><script src="/_next/static/chunks/webpack-0063e05c817e0d7c.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[69243,[\"7177\",\"static/chunks/app/layout-75c5298ff535ce4d.js\"],\"\"]\n3:I[87555,[],\"\"]\n4:I[31295,[],\"\"]\n5:I[6874,[\"6874\",\"static/chunks/6874-1335ddc9318d7318.js\",\"4345\",\"static/chunks/app/not-found-8dd0414c27b7ec9b.js\"],\"\"]\n7:I[59665,[],\"MetadataBoundary\"]\n9:I[59665,[],\"OutletBoundary\"]\nc:I[74911,[],\"AsyncMetadataOutlet\"]\ne:I[59665,[],\"ViewportBoundary\"]\n10:I[26614,[],\"\"]\n11:\"$Sreact.suspense\"\n12:I[74911,[],\"AsyncMetadata\"]\n:HL[\"/_next/static/css/ff9399e606869db4.css\",\"style\"]\n:HL[\"/_next/static/css/842fed8cb5f6a4ba.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"RDcCdEXqJ8THztyFp43wA\",\"p\":\"\",\"c\":[\"\",\"suficy.not\"],\"i\":false,\"f\":[[[\"\",{\"children\":[[\"username\",\"suficy.not\",\"d\"],{\"children\":[\"__PAGE__\",{}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/ff9399e606869db4.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[[\"$\",\"head\",null,{\"children\":[[\"$\",\"link\",null,{\"href\":\"https://assets.guns.lol/fonts/X6XYTKIVDUW7GZTZPZNN4EUM5KH54KHF.css\",\"rel\":\"stylesheet\"}],[\"$\",\"$L2\",null,{\"src\":\"https://sa.guns.lol/latest.js\",\"id\":\"_sa\"}],[\"$\",\"link\",null,{\"rel\":\"apple-touch-icon\",\"sizes\":\"180x180\",\"href\":\"https://assets.guns.lol/favicon/apple-touch-icon.png\"}],[\"$\",\"link\",null,{\"rel\":\"icon\",\"type\":\"image/png\",\"sizes\":\"32x32\",\"href\":\"https://assets.guns.lol/favicon/favicon-32x32.png\"}],[\"$\",\"link\",null,{\"rel\":\"icon\",\"type\":\"image/png\",\"sizes\":\"16x16\",\"href\":\"https://assets.guns.lol/favicon/favicon-16x16.png\"}],[\"$\",\"link\",null,{\"rel\":\"manifest\",\"href\":\"https://assets.guns.lol/favicon/site.webmanifest\"}]]}],[\"$\",\"body\",null,{\"children\":[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"div\",null,{\"className\":\"mlY0nW_acae7ef2ade572800706\",\"children\":[\"$\",\"div\",null,{\"className\":\"mYFN2x_2a483bfff065871e1e78\",\"children\":[[\"$\",\"svg\",null,{\"xmlns\":\"http://www.w3.org/2000/svg\",\"width\":\"1em\",\"height\":\"1em\",\"viewBox\":\"0 0 24 24\",\"children\":[\"$\",\"path\",null,{\"fill\":\"currentColor\",\"d\":\"M13 2v14.5h-2V2zm-2 17h2.004v2.004H11z\"}]}],[\"$\",\"h1\",null,{\"children\":\"We couldn't find this page.\"}],[\"$\",\"h3\",null,{\"children\":\"The page you are looking for doesn't exist.\"}],[\"$\",\"div\",null,{\"className\":\"nmzYu9_1091dd5bbcca39b5f847\",\"children\":[\"$\",\"$L5\",null,{\"href\":\"/\",\"children\":\"Go Home\"}]}]]}]}],[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/842fed8cb5f6a4ba.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]]}]]}],{\"children\":[[\"username\",\"suficy.not\",\"d\"],[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[\"$L6\",[\"$\",\"$L7\",null,{\"children\":\"$L8\"}],[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/842fed8cb5f6a4ba.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"$L9\",null,{\"children\":[\"$La\",\"$Lb\",[\"$\",\"$Lc\",null,{\"promise\":\"$@d\"}]]}]]}],{},null,false]},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$1\",\"Hre-ik9_zss8DPw8uu30j\",{\"children\":[[\"$\",\"$Le\",null,{\"children\":\"$Lf\"}],null]}],null]}],false]],\"m\":\"$undefined\",\"G\":[\"$10\",\"$undefined\"],\"s\":false,\"S\":false}\n"])</script><script>self.__next_f.push([1,"8:[\"$\",\"$11\",null,{\"fallback\":null,\"children\":[\"$\",\"$L12\",null,{\"promise\":\"$@13\"}]}]\nb:null\n"])</script><script>self.__next_f.push([1,"14:I[74999,[\"6874\",\"static/chunks/6874-1335ddc9318d7318.js\",\"5322\",\"static/chunks/5322-a31cc2ef467c25bd.js\",\"8306\",\"static/chunks/8306-ea0440b802e2d283.js\",\"540\",\"static/chunks/540-dc9b94456c69f193.js\",\"1100\",\"static/chunks/1100-1ef0397e08238c46.js\",\"9349\",\"static/chunks/9349-a0a548d327b13e51.js\",\"6990\",\"static/chunks/6990-20968a621a3be1f5.js\",\"9677\",\"static/chunks/9677-fb2b81040d185490.js\",\"4923\",\"static/chunks/4923-5305854283867663.js\",\"6696\",\"static/chunks/6696-314670b005b014c4.js\",\"4203\",\"static/chunks/4203-96a9a1e6d8ca7aea.js\",\"8011\",\"static/chunks/8011-a3879efb92aff950.js\",\"3720\",\"static/chunks/3720-b14104189fb4d51d.js\",\"4999\",\"static/chunks/4999-ba2ce358c80c82b5.js\",\"1911\",\"static/chunks/app/%5Busername%5D/page-1071e583fc180724.js\"],\"default\"]\n"])</script><script>self.__next_f.push([1,"6:[\"$\",\"$L14\",null,{\"data\":{\"_id\":\"684df92da2115d1681cc2b2a\",\"username\":\"suficy.not\",\"account_created\":1749940525,\"verified\":true,\"alias\":\"\",\"config\":{\"description\":\"Developer Profesional\",\"color\":\"#000000\",\"text_color\":\"#ffffff\",\"bg_color\":\"#000000\",\"icon_color\":\"#ffffff\",\"gradient_1\":\"#3b3b3b\",\"gradient_2\":\"#3b3b3b\",\"profile_gradient\":true,\"presence\":\"enabled\",\"audio\":[{\"url\":\"https://r2.guns.lol/969a57c0-d639-4366-9001-44e1752a9952.mp3\",\"title\":\"Stromae\",\"duration\":\"5:01\",\"selected\":true,\"id\":\"6d450089-59f3-4b97-b4f4-3b6babe23d6b\",\"cover\":\"\"}],\"avatar\":\"https://r2.guns.lol/8b0630fc-710a-4ccc-a758-e2c7807c7226.webp\",\"custom_cursor\":\"\",\"url\":\"https://r2.guns.lol/825d6a9f-390d-4bc6-ac08-67759b25a046.mp4\",\"animated_title\":true,\"monochrome\":true,\"volume_control\":false,\"use_discord_avatar\":false,\"swap_colors\":true,\"social_glow\":true,\"badge_glow\":true,\"display_name\":\"\",\"background_effects\":\"night\",\"username_effects\":\"white\",\"shuffle_audios\":false,\"audio_player\":false,\"location\":\"\",\"username_glow\":true,\"discord_avatar_decoration\":true,\"blur\":0,\"opacity\":0.08,\"page_views\":4,\"user_badges\":[],\"custom_badges\":[],\"socials\":[{\"social\":\"roblox\",\"value\":\"jefry_642\",\"id\":\"94e18f7a-f433-4f81-bf6a-8d2a08b9e9b6\",\"icon\":\"\",\"mode\":\"text\"},{\"social\":\"paypal\",\"value\":\"https://paypal.me/ByteEmpire?country.x=UY\u0026locale.x=es_XC\",\"id\":\"0c9a3664-c89b-42a7-b5d0-054ea843e17e\",\"icon\":\"\",\"mode\":\"link\"},{\"social\":\"youtube\",\"value\":\"https://youtube.com/@LaZonaOfficial1\",\"id\":\"1e29a83f-daa3-48fe-bd62-a3136097cc47\",\"icon\":\"\",\"mode\":\"link\"},{\"social\":\"discord\",\"value\":\"Suficy.not\",\"id\":\"00ab1c9e-6e2a-4bf5-8bb9-1aa09e519d9e\",\"icon\":\"\",\"mode\":\"text\"}],\"premium\":{\"effects_color\":\"#ffffff\",\"badge_color\":\"#ffffff\",\"border_color\":\"#ffffff\",\"typewriter_enabled\":false,\"typewriter_speed\":5,\"typewriter_delete_speed\":7,\"typewriter\":[],\"hide_views\":false,\"border_enabled\":false,\"second_tab_enabled\":false,\"monochrome_badges\":false,\"animation\":\"fade\",\"parallax_animation\":false,\"hide_join_date\":false,\"border_width\":2,\"border_radius\":20,\"avatar_radius\":35,\"second_tab\":{},\"cursor_effects\":\"\",\"font\":\"satoshi\",\"page_enter_text\":\"\",\"layout\":\"default\",\"banner\":\"\",\"buttons\":[],\"show_url\":false,\"text_align\":\"center\",\"button_shadow\":false,\"button_border_radius\":12,\"metadata\":{\"title\":\"\",\"description\":\"\",\"image\":\"\",\"favicon\":\"\",\"information_overlay\":false}}},\"premium\":false,\"uid\":757655,\"discord\":{\"username\":\"suficy.not\",\"id\":\"1352676598016512012\",\"avatar\":[\"https://cdn.discordapp.com/avatars/1352676598016512012/318b05d022f2e8775fa558836c37b566.png\"],\"user_badges\":[\"HypeSquad Bravery\",\"Discord Nitro\"]},\"_C\":\"a46ae76a173698c14bc611f2396537d7a3ef333d3017870059ded2754c4b834b\",\"_PS\":\"f057b27db9a33889d0dde9cf95d6d241feac561a937bca27a2d9d474643\",\"_ts\":1753307347,\"_n\":\"SqLroyJW61G1j6pW\",\"success\":true}}]\n"])</script><script>self.__next_f.push([1,"13:{\"metadata\":[[\"$\",\"title\",\"0\",{\"children\":\"@suficy.not | guns.lol\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Developer Profesional\"}],[\"$\",\"meta\",\"2\",{\"name\":\"author\",\"content\":\"@suficy.not | guns.lol\"}],[\"$\",\"meta\",\"3\",{\"property\":\"og:title\",\"content\":\"@suficy.not | guns.lol\"}],[\"$\",\"meta\",\"4\",{\"property\":\"og:description\",\"content\":\"Developer Profesional\"}],[\"$\",\"meta\",\"5\",{\"property\":\"og:image\",\"content\":\"https://og.guns.lol/api/og?username=suficy.not\u0026t=1753307347584\"}],[\"$\",\"meta\",\"6\",{\"property\":\"og:type\",\"content\":\"website\"}],[\"$\",\"meta\",\"7\",{\"name\":\"twitter:card\",\"content\":\"summary_large_image\"}],[\"$\",\"meta\",\"8\",{\"name\":\"twitter:title\",\"content\":\"@suficy.not | guns.lol\"}],[\"$\",\"meta\",\"9\",{\"name\":\"twitter:description\",\"content\":\"Developer Profesional\"}],[\"$\",\"meta\",\"10\",{\"name\":\"twitter:image\",\"content\":\"https://og.guns.lol/api/og?username=suficy.not\u0026t=1753307347584\"}]],\"error\":null,\"digest\":\"$undefined\"}\nd:{\"metadata\":\"$13:metadata\",\"error\":null,\"digest\":\"$undefined\"}\nf:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"2\",{\"name\":\"theme-color\",\"content\":\"#ffffff\"}]]\na:null\n"])</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"963e62c9897e203f","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.7.0","token":"2fe24d772b4146c9a06db032d45156c9"}' crossorigin="anonymous"></script>
-</body></html>
+const SnowEffect = () => {
+  const [snowflakes, setSnowflakes] = useState([]);
+
+  useEffect(() => {
+    const createSnowflakes = () => {
+      const flakes = [];
+      for (let i = 0; i < 100; i++) {
+        flakes.push({
+          id: i,
+          x: Math.random() * window.innerWidth,
+          y: Math.random() * window.innerHeight,
+          size: Math.random() * 3 + 1,
+          speed: Math.random() * 2 + 1,
+          opacity: Math.random() * 0.8 + 0.2
+        });
+      }
+      setSnowflakes(flakes);
+    };
+
+    createSnowflakes();
+
+    const animateSnow = () => {
+      setSnowflakes(prev => prev.map(flake => ({
+        ...flake,
+        y: flake.y + flake.speed,
+        x: flake.x + Math.sin(flake.y * 0.01) * 0.5,
+        y: flake.y > window.innerHeight ? -10 : flake.y + flake.speed
+      })));
+    };
+
+    const interval = setInterval(animateSnow, 50);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="fixed inset-0 pointer-events-none z-10">
+      {snowflakes.map(flake => (
+        <div
+          key={flake.id}
+          className="absolute bg-white rounded-full"
+          style={{
+            left: flake.x,
+            top: flake.y,
+            width: flake.size,
+            height: flake.size,
+            opacity: flake.opacity,
+            animation: `twinkle ${2 + Math.random() * 3}s infinite alternate`
+          }}
+        />
+      ))}
+      <style jsx>{`
+        @keyframes twinkle {
+          0% { opacity: 0.3; }
+          100% { opacity: 1; }
+        }
+      `}</style>
+    </div>
+  );
+};
+
+const BioCyberSecArchitecture = () => {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900 relative overflow-hidden">
+      <SnowEffect />
+      
+      <div className="relative z-20 p-6">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <h1 className="text-5xl font-bold text-white mb-4 animate-pulse">
+              .
+            </h1>
+            <p className="text-gray-300 text-xl">
+              .
+            </p>
+          </div>
+
+          {/* Main Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            {/* Frontend Layer */}
+            <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl p-6 backdrop-blur-sm bg-opacity-80 border border-blue-400 shadow-2xl transform hover:scale-105 transition-all duration-300">
+              <div className="text-center mb-6">
+                <img 
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=200&fit=crop&crop=center" 
+                  alt="Frontend" 
+                  className="w-full h-32 object-cover rounded-lg mb-4 opacity-90"
+                />
+                <h3 className="text-2xl font-bold text-white mb-2">.</h3>
+              </div>
+              <div className="space-y-3">
+                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
+                  <h4 className="font-semibold text-white">.</h4>
+                  <p className="text-sm text-blue-100">.</p>
+                  <span className="inline-block bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded mt-1">.</span>
+                </div>
+                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
+                  <h4 className="font-semibold text-white">.</h4>
+                  <p className="text-sm text-blue-100">.</p>
+                  <span className="inline-block bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded mt-1">.</span>
+                </div>
+                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
+                  <h4 className="font-semibold text-white">.</h4>
+                  <p className="text-sm text-blue-100">.</p>
+                  <span className="inline-block bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded mt-1">.</span>
+                </div>
+              </div>
+            </div>
+
+            {/* API Services */}
+            <div className="bg-gradient-to-br from-green-600 to-green-800 rounded-xl p-6 backdrop-blur-sm bg-opacity-80 border border-green-400 shadow-2xl transform hover:scale-105 transition-all duration-300">
+              <div className="text-center mb-6">
+                <img 
+                  src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=300&h=200&fit=crop&crop=center" 
+                  alt="API Services" 
+                  className="w-full h-32 object-cover rounded-lg mb-4 opacity-90"
+                />
+                <h3 className="text-2xl font-bold text-white mb-2">.</h3>
+              </div>
+              <div className="space-y-3">
+                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
+                  <h4 className="font-semibold text-white">.</h4>
+                  <p className="text-sm text-green-100">.</p>
+                  <span className="inline-block bg-green-200 text-green-800 text-xs px-2 py-1 rounded mt-1">.</span>
+                </div>
+                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
+                  <h4 className="font-semibold text-white">.</h4>
+                  <p className="text-sm text-green-100">.</p>
+                  <span className="inline-block bg-green-200 text-green-800 text-xs px-2 py-1 rounded mt-1">.</span>
+                </div>
+                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
+                  <h4 className="font-semibold text-white">.</h4>
+                  <p className="text-sm text-green-100">.</p>
+                  <span className="inline-block bg-green-200 text-green-800 text-xs px-2 py-1 rounded mt-1">.</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Security Layer */}
+            <div className="bg-gradient-to-br from-red-600 to-red-800 rounded-xl p-6 backdrop-blur-sm bg-opacity-80 border border-red-400 shadow-2xl transform hover:scale-105 transition-all duration-300">
+              <div className="text-center mb-6">
+                <img 
+                  src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=300&h=200&fit=crop&crop=center" 
+                  alt="Security" 
+                  className="w-full h-32 object-cover rounded-lg mb-4 opacity-90"
+                />
+                <h3 className="text-2xl font-bold text-white mb-2">.</h3>
+              </div>
+              <div className="space-y-3">
+                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
+                  <h4 className="font-semibold text-white">.</h4>
+                  <p className="text-sm text-red-100">.</p>
+                  <span className="inline-block bg-red-200 text-red-800 text-xs px-2 py-1 rounded mt-1">.</span>
+                </div>
+                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
+                  <h4 className="font-semibold text-white">.</h4>
+                  <p className="text-sm text-red-100">.</p>
+                  <span className="inline-block bg-red-200 text-red-800 text-xs px-2 py-1 rounded mt-1">.</span>
+                </div>
+                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
+                  <h4 className="font-semibold text-white">.</h4>
+                  <p className="text-sm text-red-100">.</p>
+                  <span className="inline-block bg-red-200 text-red-800 text-xs px-2 py-1 rounded mt-1">.</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Bio Analysis */}
+            <div className="bg-gradient-to-br from-purple-600 to-purple-800 rounded-xl p-6 backdrop-blur-sm bg-opacity-80 border border-purple-400 shadow-2xl transform hover:scale-105 transition-all duration-300">
+              <div className="text-center mb-6">
+                <img 
+                  src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=300&h=200&fit=crop&crop=center" 
+                  alt="Bio Analysis" 
+                  className="w-full h-32 object-cover rounded-lg mb-4 opacity-90"
+                />
+                <h3 className="text-2xl font-bold text-white mb-2">.</h3>
+              </div>
+              <div className="space-y-3">
+                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
+                  <h4 className="font-semibold text-white">.</h4>
+                  <p className="text-sm text-purple-100">.</p>
+                  <span className="inline-block bg-purple-200 text-purple-800 text-xs px-2 py-1 rounded mt-1">.</span>
+                </div>
+                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
+                  <h4 className="font-semibold text-white">.</h4>
+                  <p className="text-sm text-purple-100">.</p>
+                  <span className="inline-block bg-purple-200 text-purple-800 text-xs px-2 py-1 rounded mt-1">.</span>
+                </div>
+                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
+                  <h4 className="font-semibold text-white">.</h4>
+                  <p className="text-sm text-purple-100">.</p>
+                  <span className="inline-block bg-purple-200 text-purple-800 text-xs px-2 py-1 rounded mt-1">.</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Data Layer */}
+            <div className="bg-gradient-to-br from-yellow-600 to-yellow-800 rounded-xl p-6 backdrop-blur-sm bg-opacity-80 border border-yellow-400 shadow-2xl transform hover:scale-105 transition-all duration-300">
+              <div className="text-center mb-6">
+                <img 
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=200&fit=crop&crop=center" 
+                  alt="Data Layer" 
+                  className="w-full h-32 object-cover rounded-lg mb-4 opacity-90"
+                />
+                <h3 className="text-2xl font-bold text-white mb-2">.</h3>
+              </div>
+              <div className="space-y-3">
+                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
+                  <h4 className="font-semibold text-white">.</h4>
+                  <p className="text-sm text-yellow-100">.</p>
+                  <span className="inline-block bg-yellow-200 text-yellow-800 text-xs px-2 py-1 rounded mt-1">.</span>
+                </div>
+                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
+                  <h4 className="font-semibold text-white">.</h4>
+                  <p className="text-sm text-yellow-100">.</p>
+                  <span className="inline-block bg-yellow-200 text-yellow-800 text-xs px-2 py-1 rounded mt-1">.</span>
+                </div>
+                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
+                  <h4 className="font-semibold text-white">.</h4>
+                  <p className="text-sm text-yellow-100">.</p>
+                  <span className="inline-block bg-yellow-200 text-yellow-800 text-xs px-2 py-1 rounded mt-1">.</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Infrastructure */}
+            <div className="bg-gradient-to-br from-gray-600 to-gray-800 rounded-xl p-6 backdrop-blur-sm bg-opacity-80 border border-gray-400 shadow-2xl transform hover:scale-105 transition-all duration-300">
+              <div className="text-center mb-6">
+                <img 
+                  src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=300&h=200&fit=crop&crop=center" 
+                  alt="Infrastructure" 
+                  className="w-full h-32 object-cover rounded-lg mb-4 opacity-90"
+                />
+                <h3 className="text-2xl font-bold text-white mb-2">.</h3>
+              </div>
+              <div className="space-y-3">
+                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
+                  <h4 className="font-semibold text-white">.</h4>
+                  <p className="text-sm text-gray-100">.</p>
+                  <span className="inline-block bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded mt-1">.</span>
+                </div>
+                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
+                  <h4 className="font-semibold text-white">.</h4>
+                  <p className="text-sm text-gray-100">.</p>
+                  <span className="inline-block bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded mt-1">.</span>
+                </div>
+                <div className="bg-white bg-opacity-20 rounded-lg p-3 backdrop-blur-sm">
+                  <h4 className="font-semibold text-white">.</h4>
+                  <p className="text-sm text-gray-100">.</p>
+                  <span className="inline-block bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded mt-1">.</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Bottom Section */}
+          <div className="mt-12 bg-black bg-opacity-50 rounded-xl p-8 backdrop-blur-md border border-white border-opacity-20">
+            <h2 className="text-3xl font-bold text-white mb-6 text-center animate-pulse">
+              .
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="text-center p-4 bg-white bg-opacity-10 rounded-lg backdrop-blur-sm">
+                <div className="text-4xl mb-2">🔒</div>
+                <h3 className="text-white font-semibold mb-2">.</h3>
+                <p className="text-gray-300 text-sm">.</p>
+              </div>
+              <div className="text-center p-4 bg-white bg-opacity-10 rounded-lg backdrop-blur-sm">
+                <div className="text-4xl mb-2">🧬</div>
+                <h3 className="text-white font-semibold mb-2">.</h3>
+                <p className="text-gray-300 text-sm">.</p>
+              </div>
+              <div className="text-center p-4 bg-white bg-opacity-10 rounded-lg backdrop-blur-sm">
+                <div className="text-4xl mb-2">🚀</div>
+                <h3 className="text-white font-semibold mb-2">.</h3>
+                <p className="text-gray-300 text-sm">.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 text-center">
+            <p className="text-gray-400 animate-bounce">
+              .
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default BioCyberSecArchitecture;
