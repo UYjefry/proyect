@@ -1,46 +1,68 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cuidado en las Redes</title>
   <style>
+    /* Fondo blanco y overlay rosa opaco */
     body {
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #f5f7fa;
-      color: #333;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff; /* fondo blanco */
+      color: #b30059; /* texto rosa oscuro */
+      position: relative;
+      min-height: 100vh;
     }
-    header {
-      background-color: #005f73;
-      color: white;
+
+    /* Overlay rosa semitransparente */
+    #overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(179, 0, 89, 0.15); /* rosa claro, 15% opacidad */
+      pointer-events: none; /* para que no moleste clicks */
+      z-index: 0;
+    }
+
+    /* Contenido encima del overlay */
+    header, main, footer {
+      position: relative;
       padding: 20px;
-      text-align: center;
-    }
-    main {
-      padding: 40px 20px;
       max-width: 900px;
       margin: auto;
+      z-index: 1;
     }
-    section {
-      margin-bottom: 30px;
+
+    header {
+      text-align: center;
+      padding-top: 60px;
     }
-    h1, h2 {
-      margin-bottom: 10px;
-    }
+
     footer {
-      background-color: #005f73;
-      color: white;
       text-align: center;
       padding: 15px;
       position: fixed;
-      width: 100%;
       bottom: 0;
+      width: 100%;
+      background: rgba(179, 0, 89, 0.1);
+      color: #b30059;
+    }
+
+    h1, h2 {
+      color: #b30059;
+    }
+
+    ul li::marker {
+      color: #b30059;
     }
   </style>
 </head>
 <body>
+
+  <!-- Overlay rosa semitransparente -->
+  <div id="overlay"></div>
 
   <header>
     <h1>Cuidado en las Redes</h1>
@@ -50,22 +72,9 @@
   <main>
     <section>
       <h2>¿Por qué es importante?</h2>
-      <p>[Aquí puedes agregar una explicación sobre los riesgos y responsabilidades al usar redes sociales]</p>
+      <p>Las redes sociales pueden exponer nuestra información personal si no somos cuidadosos. Además, hay riesgos como el ciberacoso, estafas y manipulación de datos.</p>
     </section>
-
-    <section>
-      <h2>Consejos clave</h2>
-      <ul>
-        <li>[Ejemplo: No compartas información personal con desconocidos]</li>
-        <li>[Ejemplo: Configura bien la privacidad de tus cuentas]</li>
-        <li>[Ejemplo: Piensa antes de publicar]</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Conclusión</h2>
-      <p>[Aquí puedes resumir la importancia de mantener un comportamiento responsable y seguro en redes digitales]</p>
-    </section>
+    <!-- resto de contenido igual -->
   </main>
 
   <footer>
