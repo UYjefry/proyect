@@ -4,15 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cuidado en las Redes</title>
+  
+  <!-- Fuente moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  
   <style>
-    /* Fondo blanco y overlay rosa opaco */
+    /* Reset y base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #fff; /* fondo blanco */
-      color: #b30059; /* texto rosa oscuro */
-      position: relative;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff;
+      color: #333;
+      line-height: 1.6;
       min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
     }
 
     /* Overlay rosa semitransparente */
@@ -21,47 +31,101 @@
       top: 0; left: 0;
       width: 100vw;
       height: 100vh;
-      background-color: rgba(179, 0, 89, 0.15); /* rosa claro, 15% opacidad */
-      pointer-events: none; /* para que no moleste clicks */
+      background: linear-gradient(135deg, rgba(219, 39, 119, 0.15), rgba(219, 39, 119, 0.05));
+      pointer-events: none;
       z-index: 0;
+      backdrop-filter: saturate(150%) blur(10px);
     }
 
-    /* Contenido encima del overlay */
+    /* Contenedor de contenido */
     header, main, footer {
       position: relative;
-      padding: 20px;
       max-width: 900px;
-      margin: auto;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
       z-index: 1;
     }
 
     header {
       text-align: center;
-      padding-top: 60px;
+      padding-top: 4rem;
+      padding-bottom: 2rem;
+      text-shadow: 0 2px 6px rgba(219, 39, 119, 0.3);
     }
 
-    footer {
-      text-align: center;
-      padding: 15px;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: rgba(179, 0, 89, 0.1);
-      color: #b30059;
+    header h1 {
+      font-weight: 700;
+      font-size: 2.8rem;
+      color: #db2777; /* rosa fuerte */
+      margin-bottom: 0.3rem;
     }
 
-    h1, h2 {
-      color: #b30059;
+    header p {
+      font-weight: 400;
+      font-size: 1.25rem;
+      color: #555;
+    }
+
+    h2 {
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+      color: #db2777;
+      text-shadow: 0 1px 3px rgba(219, 39, 119, 0.2);
+    }
+
+    p, ul {
+      font-weight: 400;
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 1.5rem;
+    }
+
+    ul {
+      padding-left: 1.25rem;
+    }
+
+    ul li {
+      margin-bottom: 0.5rem;
     }
 
     ul li::marker {
-      color: #b30059;
+      color: #db2777;
+    }
+
+    footer {
+      background: #f9f5f8;
+      text-align: center;
+      padding: 1rem 1.5rem;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      color: #666;
+      font-size: 0.9rem;
+      border-top: 1px solid #eee;
+      z-index: 1;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      main {
+        padding: 1.5rem 1rem;
+      }
+      footer {
+        font-size: 0.8rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Overlay rosa semitransparente -->
   <div id="overlay"></div>
 
   <header>
@@ -74,7 +138,35 @@
       <h2>¿Por qué es importante?</h2>
       <p>Las redes sociales pueden exponer nuestra información personal si no somos cuidadosos. Además, hay riesgos como el ciberacoso, estafas y manipulación de datos.</p>
     </section>
-    <!-- resto de contenido igual -->
+
+    <section>
+      <h2>Consejos clave</h2>
+      <ul>
+        <li>No compartas información personal con desconocidos.</li>
+        <li>Configura bien la privacidad de tus cuentas.</li>
+        <li>Piensa antes de publicar.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Educación digital</h2>
+      <p>Aprender a usar las redes sociales de forma segura y responsable es vital para proteger tu identidad y bienestar.</p>
+    </section>
+
+    <section>
+      <h2>Privacidad en línea</h2>
+      <p>Protege tus datos personales y contraseñas con medidas sólidas y actualizadas.</p>
+    </section>
+
+    <section>
+      <h2>Ciberacoso</h2>
+      <p>Identifica y actúa frente a cualquier forma de acoso o maltrato en internet.</p>
+    </section>
+
+    <section>
+      <h2>Huella digital</h2>
+      <p>Todo lo que publicamos queda registrado; sé consciente de la información que compartes.</p>
+    </section>
   </main>
 
   <footer>
